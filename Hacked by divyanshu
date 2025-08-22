@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Hacked!</title>
+  <style>
+    body { background:black; color:lime; font-family:monospace; padding:20px; }
+    .log { white-space:pre-line; }
+  </style>
+</head>
+<body>
+  <h1 style="color:red; text-align:center;">⚠ SYSTEM HACKED ⚠</h1>
+  <div class="log" id="log"></div>
+
+  <script>
+    let logBox = document.getElementById("log");
+    let messages = [
+      "🔍 Scanning your files...",
+      "⚠ Virus detected in C:/system32/",
+      "😱 Sending your data to hackers...",
+      "💀 Passwords leaked online...",
+      "📡 Hacking in progress...",
+    ];
+
+    function addMessage() {
+      let msg = messages[Math.floor(Math.random() * messages.length)];
+      logBox.innerHTML += msg + "\n";
+      logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    // हर 700ms में नया message print होता रहेगा (infinite)
+    setInterval(addMessage, 700);
+  </script>
+</body>
+</html>
