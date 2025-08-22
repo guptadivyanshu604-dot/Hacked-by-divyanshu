@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SYSTEM HACKED</title>
+  <style>
+    :root { --bg:#000; --fg:#00ff6a; --warn:#ff3b30; }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font:16px/1.6 monospace; display:flex; flex-direction:column;
+    }
+    header{
+      color:var(--warn); text-align:center; padding:12px 8px;
+      border-bottom:1px solid #222; letter-spacing:1px;
+    }
+    #log{
+      flex:1; overflow:auto; padding:12px; white-space:pre-wrap;
+    }
+    .dim{ opacity:.7 }
+    .blink{ animation:blink 1s steps(2,start) infinite }
+    @keyframes blink { to { visibility:hidden } }
+    footer{ padding:8px 12px; border-top:1px solid #222; color:#888 }
+  </style>
+</head>
+<body>
+  <header>⚠ SYSTEM HACKED – DO NOT TURN OFF ⚠</header>
+  <pre id="log"></pre>
+  <footer class="dim">For fun only — prank page.</footer>
+
+  <script>
+    const log = document.getElementById('log');
+
+    const lines = [
+      'Connecting to remote host…',
+      'Bypassing firewall…',
+      'Collecting saved passwords…',
+      'Accessing camera…',
+      'Exfiltrating contacts…',
+      'Decrypting files…',
+      'Injecting payload…',
+      'Root access granted.',
+      'Wiping system logs…',
+      'Mining crypto…',
+      'Tracking live location…',
+      'Uploading data to 185.23.***.*** …'
+    ];
+
+    function addLine(text){
+      log.textContent += text + '\n';
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function loop(){
+      const t = new Date().toLocaleTimeString();
+      const msg = lines[Math.floor(Math.random() * lines.length)];
+      addLine(`[${t}] ${msg}`);
+    }
+
+    // Infinite loop: हर 500ms में नया "hack log" add होता रहेगा
+    setInterval(loop, 500);
+  </script>
+</body>
+</html>
