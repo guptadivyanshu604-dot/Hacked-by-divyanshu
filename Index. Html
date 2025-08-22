@@ -1,36 +1,33 @@
-# Hacked-by-divyanshu
-Hello bhai
-<!DOCTYPE html>
-<html>
-<head>
-  <title>System Hacked!</title>
-  <style>
-    body { background:black; color:lime; font-family:monospace; padding:20px; }
-    .log { white-space:pre-line; }
-  </style>
-</head>
-<body>
-  <h1 style="color:red; text-align:center;">⚠ SYSTEM HACKED ⚠</h1>
-  <div class="log" id="log"></div>
+from openpyxl import Workbook
 
-  <script>
-    let logBox = document.getElementById("log");
-    let messages = [
-      "🔍 Scanning your files...",
-      "⚠ Virus detected in C:/system32/",
-      "😱 Sending your data to hackers...",
-      "💀 Passwords leaked online...",
-      "📡 Hacking in progress...",
-    ];
+# Create a new workbook and active sheet
+wb = Workbook()
+ws = wb.active
+ws.title = "Study Timetable"
 
-    function addMessage() {
-      let msg = messages[Math.floor(Math.random() * messages.length)];
-      logBox.innerHTML += msg + "\n";
-      logBox.scrollTop = logBox.scrollHeight;
-    }
+# Define the study plan data
+data = [
+    ["Day", "Time Slot", "Activity"],
+    
+    ["Mon-Sat", "7:30 AM – 10:30 AM", "Physics Backlog (Electric Fields → Electric Potential)"],
+    ["Mon-Sat", "11:00 AM – 1:00 PM", "Maths Backlog (Functions / L.C.D. chapters)"],
+    ["Mon-Sat", "2:30 PM – 3:45 PM", "Chemistry (Physical / Organic alternately)"],
+    ["Mon-Sat", "4:00 PM – 8:30 PM", "Online Classes (Live)"],
+    ["Mon-Sat", "9:00 PM – 10:30 PM", "Revision / Backlog छोटा chapter (OC or PC one-shot)"],
+    
+    ["Sunday", "8:00 AM – 11:00 AM", "Physics + Maths (big topics)"],
+    ["Sunday", "12:00 PM – 2:00 PM", "Chemistry backlog (Organic + Physical)"],
+    ["Sunday", "3:00 PM – 5:00 PM", "Hindi / English practice"],
+    ["Sunday", "5:30 PM – 7:30 PM", "Doubt solving / Backlog छोटे lectures"],
+    ["Sunday", "9:00 PM – 10:30 PM", "Quick Revision / Next week की तैयारी"],
+]
 
-    // हर 700ms में नया message print होता रहेगा (infinite)
-    setInterval(addMessage, 700);
-  </script>
-</body>
-</html>
+# Add data to the sheet
+for row in data:
+    ws.append(row)
+
+# Save the workbook
+file_path = "/mnt/data/Study_Timetable.xlsx"
+wb.save(file_path)
+
+file_path
